@@ -1,0 +1,28 @@
+#######################################
+# Syntax Coloring Map for SRF08 Library
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+SRF08	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+begin			KEYWORD2
+getRange		KEYWORD2
+getLight		KEYWORD2
+setCentimeters	KEYWORD2
+setInches		KEYWORD2
+setuseconds		KEYWORD2
+
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+twiClock100kHz	LITERAL1
+
