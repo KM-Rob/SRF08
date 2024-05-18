@@ -45,6 +45,17 @@ int SRF08::getLight()
 	return Wire.read();	
 }
 	
+String SRF08::getUnits()
+{
+	if(Ranging_Mode == IN_MODE) return "in";
+	if(Ranging_Mode == CM_MODE) return "cm";
+	if(Ranging_Mode == US_MODE) return "us";
+	if(Ranging_Mode == ANN_IN_MODE) return "in";
+	if(Ranging_Mode == ANN_CM_MODE) return "cm";
+	if(Ranging_Mode == ANN_US_MODE) return "us";
+	return "";
+}
+	
 SRF08::setCentimeters()
 {
 	Ranging_Mode = CM_MODE;

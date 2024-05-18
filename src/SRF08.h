@@ -28,6 +28,7 @@ class SRF08
 		int begin(uint8_t I2C_address);
 		int getRange();
 		int getLight();
+		String getUnits();
 		setCentimeters();
 		setInches();
 		setuseconds();
