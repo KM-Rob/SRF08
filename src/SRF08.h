@@ -20,6 +20,12 @@
 #define SEQ2	0xA5
 #define SEQ3	0xAA
 
+// message modes
+#define Range_only 0
+#define Light_only 1
+#define Range_first 2
+#define Light_first 3
+
 
 class SRF08
 {

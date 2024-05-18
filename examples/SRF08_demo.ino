@@ -25,6 +25,6 @@ void loop() {
   Serial.print("  Light: ");
   Serial.println(sens.getLight());
   */
-  Serial.println(sens.message(1, "Dist", "Light"));
+  Serial.println(sens.message(Range_first, "Dist", "Light"));
   delay(300);
 }
