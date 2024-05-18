@@ -22,10 +22,7 @@ int SRF08::getRange()
 	uint8_t highByte = 0x00;                 // Stores high byte from ranging
 	uint8_t lowByte = 0x00;                  // Stored low byte from ranging
   
-	Wire.beginTransmission(I2C_addr);
-	Wire.write(CMD_REG);  //command register
-	Wire.write(Ranging_Mode);  // distance in centimeters
-	Wire.endTransmission();
+	activate();
 	delay(100);
 
 	chose_mode(DIST_REG);
@@ -74,4 +71,37 @@ SRF08::chose_mode(uint8_t reg)
 	Wire.beginTransmission(I2C_addr);
 	Wire.write(reg);  //light register
 	Wire.endTransmission();
+}
+
+String SRF08::message(uint8_t mode, String dist, String light)
+{
+	String mess = "";
+	switch(mode)
+	{
+		case 0: // only range
+			mess = mess + dist + ": " + getRange() + getUnits();
+			break;  
+		case 1: // only light
+			activate();
+			delay(100);
+			mess = mess + light + ": " + getLight();
+			break;  
+		case 2: // both values (range first)
+			mess = mess + dist + ": " + getRange() + getUnits() + "  " + light + ": " + getLight();
+			break;
+		case 3: // both values (light first)
+			activate();
+			delay(100);
+			mess = mess + light + ": " + getLight() + "  " + dist + ": " + getRange() + getUnits();
+			break;
+	}
+	return mess;
+}
+
+SRF08::activate()
+{
+	Wire.beginTransmission(I2C_addr);
+	Wire.write(CMD_REG);  //command register
+	Wire.write(Ranging_Mode);  // distance in centimeters
+	Wire.endTransmission();	
 }

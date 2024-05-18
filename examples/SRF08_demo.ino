@@ -15,15 +15,16 @@ void setup() {
     Serial.println("No sensor detected or wrong I2C address");
     while(error);
   }
-  sens.setuseconds();
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-  Serial.print("Distance: ");
+  /*Serial.print("Distance: ");
   Serial.print(sens.getRange());
   Serial.print(sens.getUnits());
   Serial.print("  Light: ");
   Serial.println(sens.getLight());
+  */
+  Serial.println(sens.message(1, "Dist", "Light"));
   delay(300);
 }

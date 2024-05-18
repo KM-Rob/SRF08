@@ -23,6 +23,16 @@
 
 class SRF08
 {
+	private:
+	
+	// variables
+		uint8_t I2C_addr;
+		uint8_t Ranging_Mode;
+
+	// functions
+		chose_mode(uint8_t reg);
+		activate();	
+		
 	public:
 	//	SRF08(void);
 		int begin(uint8_t I2C_address);
@@ -32,16 +42,7 @@ class SRF08
 		setCentimeters();
 		setInches();
 		setuseconds();
-	
-	private:
-	
-	// variables
-		uint8_t I2C_addr;
-		uint8_t Ranging_Mode;
-
-	// functions
-		chose_mode(uint8_t reg);
-			
+		String message(uint8_t mode, String dist, String light);
 };
 
 
